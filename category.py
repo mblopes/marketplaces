@@ -1,8 +1,8 @@
-class Marketplaces:
+class Category:
 
-    def __init__(self, name, categories):
+    def __init__(self, name, sub_categories):
         self._name = name
-        self.categories = categories
+        self.sub_categories = sub_categories
 
     @property
     def name(self):
@@ -13,4 +13,4 @@ class Marketplaces:
         self._name = new_name
 
     def __getitem__(self, item):
-        return self.categories[item]
+        return self.sub_categories[item]
