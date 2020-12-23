@@ -1,17 +1,16 @@
 {% extends 'template.html' %}
 {% block corpo %}
-    <h1>Subcategories</h1>
 
-    <h2>{{eletronicos.name}}</h2>
+    <h2 class="title">{{eletronicos.name}}</h2>
 
-    <ul>
+    <ul class="main-container">
         <li>{{ smartphone.name }}</li>
         <li>{{ monitores.name }}</li>
     </ul>
 
-    <h2>{{cozinha.name}}</h2>
+    <h2 class="title">{{cozinha.name}}</h2>
     
-    <ul>
+    <ul class="main-container">
         <li>{{ fogoes.name }}</li>
         <li>{{ geladeiras.name }}</li>
     </ul>

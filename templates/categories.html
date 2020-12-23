@@ -1,8 +1,7 @@
 {% extends 'template.html' %}
 {% block corpo %}
-    <h1>Categories</h1>
 
-    <ul>
+    <ul class="main-container">
         {% for i in list  %}
         <li>{{i.name}}</li>
         {% endfor %}
