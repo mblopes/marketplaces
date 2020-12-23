@@ -1,6 +1,6 @@
 # Desafio Marketplaces
 <br>
-Para esse desafio devem ser desenvolvidas as seguintes funcionalidades:<br>
+Para esse desafio devem ser desenvolvidas as seguintes funcionalidades utilizando a linguagem Python:<br>
 <br>
 1 - Listagem de marketplaces (lista fixa).<br>
 2 - Listagem de categorias por marketplace (lista fixa).<br>
