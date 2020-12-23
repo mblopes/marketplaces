@@ -5,6 +5,8 @@ from subcategory import SubCategory
 from marketplaces import Marketplaces
 
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 
 smartphones = SubCategory("Smartphones")
 monitores = SubCategory("Monitores")
@@ -21,49 +23,28 @@ marketplaces_list = [Marketplaces("Americanas", categories_list)]
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    name = 'Marketplaces'
+    return render_template('index.html', name=name)
 
 @app.route('/marketplaces')
 def marketplaces():
+    marketplace = marketplaces_list[0].name
 
-    return f'''
-        <h1>Marketplaces</h1>
-            <ul> 
-                <li>{marketplaces_list[0].name}</li>
-            </ul>
+    name = 'Marketplaces List'
 
-        <a href="/">Voltar<a>
-    '''
+    return render_template('marketplaces.html', marketplace=marketplace, name=name)
     
 @app.route('/categories')
 def categories():
-    return f'''
-        <h1>Categorias</h1>
-            <ul> 
-                <li>{categories_list[0].name}</li>
-                <li>{categories_list[1].name}</li>
-            </ul>
-
-        <a href="/">Voltar<a>
-    '''
+    name = 'Categories'
+    return render_template('categories.html', list=categories_list, name=name)
 
 @app.route('/subcategories')
 def subcategories():
 
-    return f'''
-        <h1>Categorias</h1>
-            <ul> 
-                <h2>{categories_list[0].name}</h2>
-                    <li>{smartphones.name}</li>
-                    <li>{monitores.name}</li>
+    name = "Subcategories"
 
-                <h2>{categories_list[1].name}</h2>
-                    <li>{fogoes.name}</li>
-                    <li>{geladeiras.name}</li>
-            </ul>
-
-        <a href="/">Voltar<a>
-    '''
+    return render_template('subcategories.html', eletronicos=eletronicos, cozinha=cozinha, smartphone=smartphones, monitores=monitores, fogoes=fogoes, geladeiras=geladeiras, name=name)
 
 
 app.run(debug=True)

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: "Roboto";
+}
+
+a {
+    text-decoration: none;
+}
+
+.back-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #0C29D0;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-link a {
+    color: #E6EEFF;
+}

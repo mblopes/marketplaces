@@ -1,3 +1,23 @@
-<h1>Subcategorias</h1>
+{% extends 'template.html' %}
+{% block corpo %}
+    <h1>Subcategories</h1>
 
-<a href="/">Voltar<a>
+    <h2>{{eletronicos.name}}</h2>
+
+    <ul>
+        <li>{{ smartphone.name }}</li>
+        <li>{{ monitores.name }}</li>
+    </ul>
+
+    <h2>{{cozinha.name}}</h2>
+    
+    <ul>
+        <li>{{ fogoes.name }}</li>
+        <li>{{ geladeiras.name }}</li>
+    </ul>
+
+
+    <div class="back-link">
+        <a href="/" >Back</a>
+    </div>
+{% endblock %}

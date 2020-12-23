@@ -1,3 +1,16 @@
-<h1>Categorias</h1>
+{% extends 'template.html' %}
+{% block corpo %}
+    <h1>Categories</h1>
 
-<a href="/">Voltar<a>
+    <ul>
+        {% for i in list  %}
+        <li>{{i.name}}</li>
+        {% endfor %}
+    </ul>
+    
+
+    <div class="back-link">
+        <a href="/" >Back</a>
+    </div>
+    
+{% endblock %}
