@@ -1,7 +1,9 @@
 {% extends 'template.html' %}
 {% block corpo %}
     <ul class="main-container">
-        <li>{{marketplace}}</li>
+        {% for i in marketplace %}
+            <li>{{i}}</li>
+        {% endfor %}
     </ul>
 
     <div class="back-link">

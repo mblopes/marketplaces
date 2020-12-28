@@ -1,24 +1,30 @@
 from flask import Flask, render_template
 
-from category import Category
-from subcategory import SubCategory
-from marketplaces import Marketplaces
+from historico import Historico
+
+# from category import Category
+# from subcategory import SubCategory
+# from marketplaces import Marketplaces
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-smartphones = SubCategory("Smartphones")
-monitores = SubCategory("Monitores")
+# smartphones = SubCategory("Smartphones")
+# monitores = SubCategory("Monitores")
 
-fogoes = SubCategory("Fogões")
-geladeiras = SubCategory("Geladeiras")
+# fogoes = SubCategory("Fogões")
+# geladeiras = SubCategory("Geladeiras")
 
-eletronicos = Category("Eletrônicos", [smartphones, monitores])
-cozinha = Category("Cozinha", [fogoes, geladeiras])
+# eletronicos = Category("Eletrônicos", [smartphones, monitores])
+# cozinha = Category("Cozinha", [fogoes, geladeiras])
 
-categories_list = [eletronicos, cozinha]
+# categories_list = [eletronicos, cozinha]
 
-marketplaces_list = [Marketplaces("Americanas", categories_list)]
+# marketplaces_list = [Marketplaces("Americanas", categories_list)]
+
+
+
+historico = Historico('historico.txt')
 
 @app.route('/')
 def index():
@@ -27,7 +33,7 @@ def index():
 
 @app.route('/marketplaces')
 def marketplaces():
-    marketplace = marketplaces_list[0].name
+    marketplace = historico.ler_marketplaces()
 
     name = 'Marketplaces List'
 
@@ -36,6 +42,10 @@ def marketplaces():
 @app.route('/categories')
 def categories():
     name = 'Categories'
+
+    categories_list = historico.ler_categorias()
+
+
     return render_template('categories.html', list=categories_list, name=name)
 
 @app.route('/subcategories')
@@ -43,7 +53,9 @@ def subcategories():
 
     name = "Subcategories"
 
-    return render_template('subcategories.html', eletronicos=eletronicos, cozinha=cozinha, smartphone=smartphones, monitores=monitores, fogoes=fogoes, geladeiras=geladeiras, name=name)
+    subcategories_list = historico.ler_subcategorias()
+
+    return render_template('subcategories.html', list=subcategories_list, name=name)
 
 
 app.run(debug=True)

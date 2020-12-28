@@ -1,17 +1,18 @@
-from category import Category
-from subcategory import SubCategory
-from marketplaces import Marketplaces
-
-
-eletronicos = Category("Eletrônicos", [SubCategory("Smartphones"), SubCategory("Monitores")])
-cozinha = Category("Cozinha", [SubCategory("Fogões"), SubCategory("Geladeiras")])
-
-categories_list = [eletronicos, cozinha]
-
-marketplaces_list = [Marketplaces("Americanas", categories_list)]
-
-
 from historico import Historico
+
+# from category import Category
+# from subcategory import SubCategory
+# from marketplaces import Marketplaces
+
+
+# eletronicos = Category("Eletrônicos", [SubCategory("Smartphones"), SubCategory("Monitores")])
+# cozinha = Category("Cozinha", [SubCategory("Fogões"), SubCategory("Geladeiras")])
+
+# categories_list = [eletronicos, cozinha]
+
+# marketplaces_list = [Marketplaces("Americanas", categories_list)]
+
+
 
 historico = Historico('historico.txt')
 

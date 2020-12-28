@@ -1,19 +1,12 @@
 {% extends 'template.html' %}
 {% block corpo %}
 
-    <h2 class="title">{{eletronicos.name}}</h2>
-
     <ul class="main-container">
-        <li>{{ smartphone.name }}</li>
-        <li>{{ monitores.name }}</li>
+        {% for i in list  %}
+            <li>{{i}}</li>
+        {% endfor %}
     </ul>
 
-    <h2 class="title">{{cozinha.name}}</h2>
-    
-    <ul class="main-container">
-        <li>{{ fogoes.name }}</li>
-        <li>{{ geladeiras.name }}</li>
-    </ul>
 
 
     <div class="back-link">
