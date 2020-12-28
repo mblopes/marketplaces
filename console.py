@@ -11,6 +11,10 @@ categories_list = [eletronicos, cozinha]
 marketplaces_list = [Marketplaces("Americanas", categories_list)]
 
 
+from historico import Historico
+
+historico = Historico('historico.txt')
+
 def menu():
     options = ["Listar Marketplaces", "Listar Categorias", "Listar Subcategorias", "Sair"]
 
@@ -22,37 +26,27 @@ def menu():
     return option
 
 def listar_marketplaces(marketplaces):
-    for marketplace in marketplaces:
-        print(marketplace.name)
+    for marketplace_name in marketplaces:
+        print(marketplace_name)
 
-def listar_categorias(marketplaces):
-    for i, option in enumerate(marketplaces):
-        print(f"{i} - {option.name}")
-    
-    option = int(input("Selecione uma opção: "))
+def listar_categorias(categories_list):
+    for category in categories_list:
+        print(category)
 
-    for category in marketplaces_list[option]:
-        print(category.name)
-
-def listar_sub_categorias(categories_list):
-    for i, option in enumerate(categories_list):
-        print(f"{i} - {option.name}")
-    
-    option = int(input("Selecione uma opção: "))
-
-    for category in categories_list[option]:
-        print(category.name)
+def listar_sub_categorias(subcategories_list):
+    for subcategory in subcategories_list:
+        print(subcategory)
 
 while True:
     try:
         option = menu()
 
         if option == 1:
-            listar_marketplaces(marketplaces_list)
+            listar_marketplaces(historico.ler_marketplaces())
         elif option == 2:
-            listar_categorias(marketplaces_list)
+            listar_categorias(historico.ler_categorias())
         elif option == 3:
-            listar_sub_categorias(categories_list)
+            listar_sub_categorias(historico.ler_subcategorias())
         elif option == 4:
             exit(0)
         else:
