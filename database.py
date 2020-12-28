@@ -1,6 +1,6 @@
 import json
 
-class Historico:
+class Database:
 
     def __init__(self, caminho):
         self.arquivo = open(caminho, 'r')

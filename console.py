@@ -1,4 +1,4 @@
-from historico import Historico
+from database import Database
 
 # from category import Category
 # from subcategory import SubCategory
@@ -14,7 +14,7 @@ from historico import Historico
 
 
 
-historico = Historico('historico.txt')
+database = Database('database.txt')
 
 def menu():
     options = ["Listar Marketplaces", "Listar Categorias", "Listar Subcategorias", "Sair"]
@@ -43,11 +43,11 @@ while True:
         option = menu()
 
         if option == 1:
-            listar_marketplaces(historico.ler_marketplaces())
+            listar_marketplaces(database.ler_marketplaces())
         elif option == 2:
-            listar_categorias(historico.ler_categorias())
+            listar_categorias(database.ler_categorias())
         elif option == 3:
-            listar_sub_categorias(historico.ler_subcategorias())
+            listar_sub_categorias(database.ler_subcategorias())
         elif option == 4:
             exit(0)
         else:

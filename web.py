@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-from historico import Historico
+from database import Database
 
 # from category import Category
 # from subcategory import SubCategory
@@ -24,7 +24,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 
-historico = Historico('historico.txt')
+database = Database('database.txt')
 
 @app.route('/')
 def index():
@@ -33,7 +33,7 @@ def index():
 
 @app.route('/marketplaces')
 def marketplaces():
-    marketplace = historico.ler_marketplaces()
+    marketplace = database.ler_marketplaces()
 
     name = 'Marketplaces List'
 
@@ -43,7 +43,7 @@ def marketplaces():
 def categories():
     name = 'Categories'
 
-    categories_list = historico.ler_categorias()
+    categories_list = database.ler_categorias()
 
 
     return render_template('categories.html', list=categories_list, name=name)
@@ -53,7 +53,7 @@ def subcategories():
 
     name = "Subcategories"
 
-    subcategories_list = historico.ler_subcategorias()
+    subcategories_list = database.ler_subcategorias()
 
     return render_template('subcategories.html', list=subcategories_list, name=name)
 
