@@ -14,5 +14,5 @@ E devem ser atendidos os seguintes requisitos:<br>
 3 - Ser persistido apenas em memória.<br>
 4 - Ser utilizado GITHUB.<br>
 <br>
-<h1>Parte 2<h1>
-<p>1 - Implementar dados persistidos em arquivos de texto<p>
+<h1>Parte 2</h1>
+1 - Implementar dados persistidos em arquivos de texto
