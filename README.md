@@ -17,3 +17,6 @@ E devem ser atendidos os seguintes requisitos:<br>
 <h1>Parte 2</h1>
 <br>
 1 - Implementar dados persistidos em arquivos de texto
+<h1>Parte 3</h1>
+<br>
+1 - Implementar log de utilização das funções do programa
