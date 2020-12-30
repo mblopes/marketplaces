@@ -1,27 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from database import Database
 
-# from category import Category
-# from subcategory import SubCategory
-# from marketplaces import Marketplaces
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-
-# smartphones = SubCategory("Smartphones")
-# monitores = SubCategory("Monitores")
-
-# fogoes = SubCategory("Fogões")
-# geladeiras = SubCategory("Geladeiras")
-
-# eletronicos = Category("Eletrônicos", [smartphones, monitores])
-# cozinha = Category("Cozinha", [fogoes, geladeiras])
-
-# categories_list = [eletronicos, cozinha]
-
-# marketplaces_list = [Marketplaces("Americanas", categories_list)]
-
 
 
 database = Database('database.txt')
@@ -31,8 +14,15 @@ def index():
     name = 'Marketplaces'
     return render_template('index.html', name=name)
 
+
+
 @app.route('/marketplaces')
 def marketplaces():
+    new_marketplace_name = request.args.get('new-marketplace')
+
+    if new_marketplace_name != None:
+        database.novo_marketplace(new_marketplace_name)
+
     marketplace = database.ler_marketplaces()
 
     name = 'Marketplaces List'

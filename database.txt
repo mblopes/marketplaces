@@ -1,1 +1,2 @@
-{"nome":"Americanas" ,"categorias": ["Eletronico","Cozinha"], "subcategorias": ["Smartphone", "Videogames", "Talheres", "Pratos"]}
+{"nome":"Americanas","categorias": ["Eletronico","Cozinha"],"subcategorias": ["Smartphone", "Videogames", "Talheres", "Pratos"]}
+{"nome":"Carrefour","categorias": ["Eletronico","Cozinha"],"subcategorias": ["Smartphone", "Videogames", "Talheres", "Pratos"]}

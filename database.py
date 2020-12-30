@@ -4,7 +4,10 @@ from date import retorna_data
 class Database:
 
     def __init__(self, caminho):
-        self.arquivo = open(caminho, 'r')
+        self.caminho = caminho
+    
+    def consultar_dados(self):
+        self.arquivo = open(self.caminho, 'r')
         self.marketplaces = self.arquivo.readlines()
 
         self.marketplaces_list = []
@@ -14,8 +17,12 @@ class Database:
             self.marketplaces_list.append(self.dados)
 
         self.arquivo.close()
+
+        return self.marketplaces_list
     
     def ler_marketplaces(self) -> list:
+        self.marketplaces_list = self.consultar_dados()
+
         self.marketplaces_nomes = []
         for self.marketplace in self.marketplaces_list:
             self.marketplaces_nomes.append(self.marketplace["nome"])
@@ -27,6 +34,8 @@ class Database:
         return self.marketplaces_nomes
     
     def ler_categorias(self) -> list:
+        self.marketplaces_list = self.consultar_dados()
+
         self.lista_categorias = []
 
         for self.marketplace in self.marketplaces_list:
@@ -40,6 +49,8 @@ class Database:
         return self.lista_categorias
     
     def ler_subcategorias(self) -> list:
+        self.marketplaces_list = self.consultar_dados()
+
         self.lista_subcategorias = []
 
         for self.marketplace in self.marketplaces_list:
@@ -51,4 +62,14 @@ class Database:
         self.log.close()
         
         return self.lista_subcategorias
+    
+    def novo_marketplace(self, nome):
+        self.arquivo = open(self.caminho, 'a')
 
+        self.nome = f'"nome":"{nome}",'
+        self.categorias = f'"categorias": ["Eletronico","Cozinha"],'
+        self.subcategorias = f'"subcategorias": ["Smartphone", "Videogames", "Talheres", "Pratos"]'
+        
+        self.arquivo.write('{' + self.nome + self.categorias + self.subcategorias + '}\n')
+
+        self.arquivo.close()
