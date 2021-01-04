@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 
-from database import Database
+import sys
+sys.path.append('f:\projetos\olistprojetos\marketplaces')
+
+from backend.database import Database
 
 
 app = Flask(__name__)

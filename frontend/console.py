@@ -1,4 +1,7 @@
-from database import Database
+import sys
+sys.path.append('f:\projetos\olistprojetos\marketplaces')
+
+from backend.database import Database
 
 database = Database('database.txt')
 
