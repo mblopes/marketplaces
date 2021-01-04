@@ -15,7 +15,6 @@ def index():
     return render_template('index.html', name=name)
 
 
-
 @app.route('/marketplaces')
 def marketplaces():
     new_marketplace_name = request.args.get('new-marketplace')
